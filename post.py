@@ -64,7 +64,7 @@ class POST():
     def check_post(self, response):
         import urllib
         from bs4 import BeautifulSoup
-        html = BeautifulSoup(response)
+        html = BeautifulSoup(response, 'lxml')
         title = html.title.string
         if re.match(r'\d{3}', html.title.string):
             return int(html.title.string)
